@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="test"
+            name="Sample Category">
+      </category>
+      <view
+            category="test"
+            class="controlcontribution.test.views.ListenerDemoView"
+            icon="icons/sample.gif"
+            id="test.views.SampleView"
+            name="Sample View">
+      </view>
+   </extension>
+
+</plugin>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="e4.app.test">
+         <property
+               name="appName"
+               value="e4.app.test">
+         </property>
+         <property
+               name="applicationXMI"
+               value="e4.app.test/Application.e4xmi">
+         </property>
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/e4.app.test/css/default.css">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
