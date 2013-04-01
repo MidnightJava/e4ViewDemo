@@ -7,6 +7,7 @@ import javax.inject.Named;
 
 import org.eclipse.core.commands.contexts.ContextManager;
 import org.eclipse.core.runtime.ListenerList;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.ui.internal.services.ContextContextService;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -40,18 +41,28 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.internal.contexts.ContextManagerFactory;
 import org.eclipse.ui.internal.contexts.ContextService;
 import org.eclipse.ui.internal.keys.model.ContextModel;
+import org.eclipse.ui.internal.util.BundleUtility;
 import org.eclipse.ui.part.ViewPart;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Version;
+
+import controlcontribution.test.views.ListenerDemoView.MyControlContribution;
+
+import e4.app.test.common.ExampleView;
 
 
-public class ListenerDemoView extends ViewPart {
+public class WrappedListenerDemoView extends ViewPart {
 
-	public static final String ID = "test.views.SampleView";
+	public static final String ID = "test.views.WrappedSampleView";
 
 	private MyControlContribution cc;
 
-	private Label label;
-
-	private IViewSite site;
+	private ExampleView pojoView;
+	
+	public WrappedListenerDemoView() {
+		pojoView = new ExampleView();
+	}
 
 	class MyControlContribution extends ControlContribution {
 		protected MyControlContribution(String id) {
@@ -99,36 +110,17 @@ public class ListenerDemoView extends ViewPart {
 	@Override
 	@PostConstruct
 	public void createPartControl(Composite parent) {
-		GridLayoutFactory.fillDefaults().applyTo(parent);
-		label = new Label(parent, SWT.NONE);
-		label.setText("Hello Worl E3!");
-		GridDataFactory.fillDefaults().align(SWT.CENTER, SWT.CENTER).applyTo(label);
-		//view site is null here
+		Bundle platformBundle = Platform.getBundle("org.eclipse.platform");
+		Version version = platformBundle.getVersion();
+		System.err.println(version.toString());
+		System.err.println("Major: " + version.getMajor());
 		
-		IActionBars bars = getViewSite().getActionBars();
-		cc = new MyControlContribution("ControlContribution");
-		bars.getToolBarManager().add(cc);
-		cc.addMouseTrackListener(new MouseTrackAdapter() {
-
-			@Override
-			public void mouseEnter(MouseEvent arg0) {
-				System.err.println("MOUSE ENTER");
-			}
-		});
-		cc.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent arg0) {
-				System.err.println("BUTTON CLICKED");
-			}
-		});
-		bars.updateActionBars();
-		
+		pojoView.createPartControl(parent);
+		pojoView.setLabel("Hellow World E4—Wrapped!");
 	}
 	
 	@Override
 	public void setFocus() {
-		label.setFocus();
-		this.site = getViewSite();
+		this.pojoView.setFocus();
 	}
 }
