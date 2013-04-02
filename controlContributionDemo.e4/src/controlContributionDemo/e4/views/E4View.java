@@ -1,17 +1,18 @@
 package controlContributionDemo.e4.views;
 
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
+/**
+ * 
+ * This view can only be rendered in an E4 runtime. It is instantiated by the workbench model
+ * provided in Plug-in application.e4, which was generated using the E4 Tools project.
+ *
+ */
 public class E4View {
 
 	private static final String TOOL_ITEM_ID = "e4.app.test.toolcontrol";

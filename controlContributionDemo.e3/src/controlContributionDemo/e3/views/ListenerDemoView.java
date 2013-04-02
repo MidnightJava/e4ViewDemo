@@ -10,7 +10,6 @@ import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.events.MouseTrackAdapter;
 import org.eclipse.swt.events.MouseTrackListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -21,18 +20,20 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.part.ViewPart;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.Version;
 
 /**
- * This view will render in an E3 runtime, and it will place a Control with
- * a mouse listener on the view toolbar. This view will not render in an
- * E4 runtime, even if you assign it as an Input Part in the E4 model,
- * because the E4 runtime will not invoke {@link #createPartControl(Composite)}
- * without the @PostConstruct annotation.
- *
+ * This view will render in an E3 or E4 runtime. In an E3 runtime, it will place a ControlContribution
+ * with a mouse listener on the view toolbar obtained from the ViewSite. In an E4 runtime, the workbench
+ * model instantiates this view and places a ToolControlImpl instance on its toolbar. The ViewSite is not
+ * available in an E4 runtime.
+ * 
+ * The view is defined via a views extension in plugin.xml. In an E3 runtime, the view is instantiated
+ * as a normal E3 view. In an E4 runtime, the application workbench model references and instantiates
+ * the view using its plugin.xml contribution. The workbench model is provided in Plug-in application.e4,
+ * which was generated using the E4 Tools project.
  */
 
 public class ListenerDemoView extends ViewPart {
@@ -87,7 +88,6 @@ public class ListenerDemoView extends ViewPart {
 	};
 
 	@Override
-	/** Uncomment this annotation to use this view in an E4 runtime */
 	@PostConstruct
 	public void createPartControl(Composite parent) {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
@@ -99,7 +99,7 @@ public class ListenerDemoView extends ViewPart {
 		if (version.getMajor() < 4) {
 			addToolbarItem();
 		} 
-		//in e4 runtime, toolbar and tool items are added through the application model
+		//in e4 runtime, toolbar and tool items are added through the application model provided in application.e4
 	}
 
 	private void addToolbarItem() {

@@ -24,7 +24,14 @@ import org.eclipse.ui.part.ViewPart;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.Version;
 
-
+/**
+ * 
+ * This view can only be rendered in an E4 runtime. The view is contributed via the views extension
+ * as an E3 view running in the E4 compatibility layer. However, it wraps a pure E4 view implemented
+ * as a POJO with the requisite injection annotations. It is instantiated by the workbench model
+ * provided in Plug-in application.e4, which was generated using the E4 Tools project.
+ *
+ */
 
 
 public class E3ViewWrapper extends ViewPart {
