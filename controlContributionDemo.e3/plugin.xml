@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="test"
+            name="Sample Category">
+      </category>
+      <view
+            category="test"
+            class="controlContributionDemo.e3.views.ListenerDemoView"
+            icon="icons/sample.gif"
+            id="test.views.SampleView"
+            name="Sample View">
+      </view>
+   </extension>
+   <extension
+         id="id1"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="controlcontributiondemo.e3.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="controlContributionDemo.e3.id1"
+            name="demo">
+         <property
+               name="appName"
+               value="demo">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="controlcontributiondemo.e3.PerspectiveFactory"
+            id="controlContribution.e3.perspective"
+            name="Control Contribution Demo">
+      </perspective>
+   </extension>
+
+</plugin>

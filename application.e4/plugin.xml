@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="application.e4">
+         <property
+               name="appName"
+               value="application.e4">
+         </property>
+         <property
+               name="applicationXMI"
+               value="application.e4/Application.e4xmi">
+         </property>
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/application.e4/css/default.css">
+         </property>
+      </product>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="controlContributionDemo.e3.views.WrappedListenerDemoView"
+            icon="icons/sample.gif"
+            id="test.views.WrappedSampleView"
+            name="Wrapped Sample View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

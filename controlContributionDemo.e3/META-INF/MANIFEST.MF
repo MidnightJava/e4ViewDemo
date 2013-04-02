@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: controlContributionDemo.e3;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: controlContributionDemo.e3.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.platform;bundle-version="0.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: controlContributionDemo.e3.views
