@@ -59,7 +59,7 @@ public class WrappedListenerDemoView extends ViewPart {
 	private MyControlContribution cc;
 
 	private ExampleView pojoView;
-	
+
 	public WrappedListenerDemoView() {
 		pojoView = new ExampleView();
 	}
@@ -112,13 +112,35 @@ public class WrappedListenerDemoView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		Bundle platformBundle = Platform.getBundle("org.eclipse.platform");
 		Version version = platformBundle.getVersion();
-		System.err.println(version.toString());
-		System.err.println("Major: " + version.getMajor());
-		
-		pojoView.createPartControl(parent);
+		if (version.getMajor() < 4) {
+			addToolbarItem();
+		} 
+		//in e4 runtime, toolbar and tool items are added through the application model
+		pojoView.createPartControl(parent, null);
 		pojoView.setLabel("Hellow World E4—Wrapped!");
 	}
-	
+
+	private void addToolbarItem() {
+		IActionBars bars = getViewSite().getActionBars();
+		cc = new MyControlContribution("ControlContribution");
+		bars.getToolBarManager().add(cc);
+		cc.addMouseTrackListener(new MouseTrackAdapter() {
+
+			@Override
+			public void mouseEnter(MouseEvent arg0) {
+				System.err.println("MOUSE ENTER");
+			}
+		});
+		cc.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				System.err.println("BUTTON CLICKED");
+			}
+		});
+		bars.updateActionBars();
+	}
+
 	@Override
 	public void setFocus() {
 		this.pojoView.setFocus();

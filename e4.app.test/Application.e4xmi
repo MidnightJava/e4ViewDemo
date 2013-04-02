@@ -7,7 +7,7 @@
           <children xsi:type="basic:PartStack" xmi:id="_UAE4y5afEeK34Icv_LoRbQ">
             <children xsi:type="basic:Part" xmi:id="_d3-VgJagEeK34Icv_LoRbQ" elementId="e4.app.test.part.0" contributionURI="bundleclass://e4.app.test.common/e4.app.test.common.ExampleView" label="E4 Part" tooltip="E4 Part">
               <toolbar xmi:id="_uEUlsJcLEeKR8_12GgdtIw" elementId="e4.app.test.toolbar.0">
-                <children xsi:type="menu:ToolControl" xmi:id="_0d9oUJcLEeKR8_12GgdtIw" elementId="e4.app.test.toolcontrol.0" contributionURI="bundleclass://e4.app.test/e4.app.test.CustomButton"/>
+                <children xsi:type="menu:ToolControl" xmi:id="_0d9oUJcLEeKR8_12GgdtIw" elementId="e4.app.test.toolcontrol" contributionURI="bundleclass://e4.app.test.common/e4.app.test.common.CustomButton1"/>
               </toolbar>
             </children>
             <children xsi:type="advanced:Placeholder" xmi:id="_nxPEMJahEeKxQfQgfpEhRA" elementId="test.views.SampleView" ref="_dBrxQJahEeKxQfQgfpEhRA"/>
@@ -28,19 +28,19 @@
     </mainMenu>
     <sharedElements xsi:type="basic:InputPart" xmi:id="_dBrxQJahEeKxQfQgfpEhRA" elementId="e4.app.test.inputpart.0" contributionURI="bundleclass://controlContribution.test/controlcontribution.test.views.ListenerDemoView" label="E3 Shared Part" tooltip="E3 Shared Part">
       <toolbar xmi:id="_DMbnsJbnEeKR8_12GgdtIw" elementId="e4.app.test.toolbar.0">
-        <children xsi:type="menu:ToolControl" xmi:id="_8XUUwJcMEeKR8_12GgdtIw" elementId="e4.app.test.toolcontrol.0" contributionURI="bundleclass://e4.app.test/e4.app.test.CustomButton"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_8XUUwJcMEeKR8_12GgdtIw" elementId="e4.app.test.toolcontrol" contributionURI="bundleclass://e4.app.test.common/e4.app.test.common.CustomButton2"/>
       </toolbar>
     </sharedElements>
     <sharedElements xsi:type="basic:InputPart" xmi:id="_bF62YJfZEeKA08R067jHCA" elementId="e4.app.test.inputpart.0" contributionURI="bundleclass://controlContribution.test/controlcontribution.test.views.WrappedListenerDemoView" label="Wraped E3 Part">
       <toolbar xmi:id="_ntNHAJfZEeKA08R067jHCA" elementId="e4.app.test.toolbar.0">
-        <children xsi:type="menu:ToolControl" xmi:id="_ohTdcJfZEeKA08R067jHCA" elementId="e4.app.test.toolcontrol.0" contributionURI="bundleclass://e4.app.test/e4.app.test.CustomButton"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_ohTdcJfZEeKA08R067jHCA" elementId="e4.app.test.toolcontrol" contributionURI="bundleclass://e4.app.test.common/e4.app.test.common.CustomButton3"/>
       </toolbar>
     </sharedElements>
     <trimBars xmi:id="_UAE4zJafEeK34Icv_LoRbQ">
       <children xsi:type="menu:ToolBar" xmi:id="_UAFf0JafEeK34Icv_LoRbQ" elementId="toolbar:org.eclipse.ui.main.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_UAFf0ZafEeK34Icv_LoRbQ" iconURI="platform:/plugin/e4.app.test/icons/sample.gif" command="_UAERvpafEeK34Icv_LoRbQ"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_UAFf0pafEeK34Icv_LoRbQ" iconURI="platform:/plugin/e4.app.test/icons/save_edit.gif" command="_UAERwZafEeK34Icv_LoRbQ"/>
-        <children xsi:type="menu:ToolControl" xmi:id="_Q3qDwJb2EeKR8_12GgdtIw" elementId="e4.app.test.toolcontrol.0" contributionURI="bundleclass://e4.app.test/e4.app.test.CustomButton"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_Q3qDwJb2EeKR8_12GgdtIw" elementId="e4.app.test.toolcontrol.0" contributionURI="bundleclass://e4.app.test.common/e4.app.test.common.CustomButton1"/>
       </children>
     </trimBars>
   </children>

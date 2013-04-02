@@ -7,6 +7,7 @@ import javax.inject.Named;
 
 import org.eclipse.core.commands.contexts.ContextManager;
 import org.eclipse.core.runtime.ListenerList;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.ui.internal.services.ContextContextService;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -41,6 +42,8 @@ import org.eclipse.ui.internal.contexts.ContextManagerFactory;
 import org.eclipse.ui.internal.contexts.ContextService;
 import org.eclipse.ui.internal.keys.model.ContextModel;
 import org.eclipse.ui.part.ViewPart;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.Version;
 
 
 public class ListenerDemoView extends ViewPart {
@@ -103,8 +106,15 @@ public class ListenerDemoView extends ViewPart {
 		label = new Label(parent, SWT.NONE);
 		label.setText("Hello Worl E3!");
 		GridDataFactory.fillDefaults().align(SWT.CENTER, SWT.CENTER).applyTo(label);
-		//view site is null here
-		
+		Bundle platformBundle = Platform.getBundle("org.eclipse.platform");
+		Version version = platformBundle.getVersion();
+		if (version.getMajor() < 4) {
+			addToolbarItem();
+		} 
+		//in e4 runtime, toolbar and tool items are added through the application model
+	}
+
+	private void addToolbarItem() {
 		IActionBars bars = getViewSite().getActionBars();
 		cc = new MyControlContribution("ControlContribution");
 		bars.getToolBarManager().add(cc);
@@ -123,7 +133,6 @@ public class ListenerDemoView extends ViewPart {
 			}
 		});
 		bars.updateActionBars();
-		
 	}
 	
 	@Override
