@@ -30,6 +30,7 @@ public class CustomButton1 extends ToolControlImpl {
 			}
 
 		});
+		this.setObject(label);
 	}
 
 	public Control getControl() {

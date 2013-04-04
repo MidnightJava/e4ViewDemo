@@ -13,4 +13,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.core.contexts;bundle-version="1.2.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: controlContributionDemo.e4
+Export-Package: controlContributionDemo.e4,
+ controlContributionDemo.e4.views

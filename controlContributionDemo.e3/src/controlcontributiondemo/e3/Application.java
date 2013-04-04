@@ -1,4 +1,4 @@
-package controlContributionDemo.e3;
+package controlcontributiondemo.e3;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;

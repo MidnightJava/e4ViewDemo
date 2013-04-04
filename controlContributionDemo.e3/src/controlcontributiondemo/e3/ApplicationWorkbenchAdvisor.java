@@ -1,4 +1,4 @@
-package controlContributionDemo.e3;
+package controlcontributiondemo.e3;
 
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;

@@ -1,5 +1,6 @@
 package controlContributionDemo.e4.views;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -7,8 +8,10 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.menu.MToolBarElement;
 import org.eclipse.e4.ui.model.application.ui.menu.MToolItem;
 import org.eclipse.e4.ui.model.application.ui.menu.impl.MenuPackageImpl;
+import org.eclipse.e4.ui.model.application.ui.menu.impl.ToolBarImpl;
 import org.eclipse.e4.ui.model.application.ui.menu.impl.ToolControlImpl;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.jface.layout.GridDataFactory;
@@ -23,6 +26,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
+
+import controlContributionDemo.e4.CustomButton1;
 
 /**
  * 
@@ -32,10 +39,10 @@ import org.eclipse.swt.widgets.Text;
  */
 public class E4View {
 
-	private static final String TOOL_ITEM_ID = "application.e4.toolcontrol.0";
+	private static final String TOOL_ITEM_ID = "application.e4.toolcontrol.1";
 	private Label label;
 	private MApplication application;
-	
+
 	@Inject
 	public void setApplication(MApplication application) {
 		this.application = application;
@@ -47,7 +54,7 @@ public class E4View {
 		label = new Label(parent, SWT.NONE);
 		label.setText("Hello World E4!");
 		GridDataFactory.fillDefaults().span(3, 1).applyTo(label);
-		
+
 		Label l2 = new Label(parent, SWT.NONE);
 		l2.setText("Enter new label text");
 		GridDataFactory.fillDefaults().align(SWT.END, SWT.CENTER).applyTo(l2);
@@ -59,31 +66,38 @@ public class E4View {
 		b.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				System.err.println("tool control ID: " + getToolControl().getElementId());
-				getToolControl().eSet(MenuPackageImpl.DIRECT_TOOL_ITEM__LABEL, text.getText());
 				ToolControlImpl toolControl = getToolControl();
-				Composite comp = (Composite) toolControl.getWidget();
-				Control[] children = comp.getChildren();
-				toolControl.hashCode();
+				if (toolControl != null) {
+					ToolBar bar = (ToolBar) toolControl.getParent().getWidget();
+					ToolItem[] items = bar.getItems();
+					Control[] controls = bar.getChildren();
+
+					Label l = (Label) toolControl.getObject();
+				}
+
 			}
 		});
 		b.setEnabled(false);
-		
+
 		text.addModifyListener(new ModifyListener() {
 
 			@Override
 			public void modifyText(ModifyEvent e) {
 				b.setEnabled(text.getText().length() > 0);
 			}
-			
+
 		});
 	}
-	
+
 	public ToolControlImpl getToolControl() {
-		EModelService modelService = (EModelService) application.getContext()
-                .get(EModelService.class.getName());
-		List<ToolControlImpl> elements = modelService.findElements(application, TOOL_ITEM_ID, null, null);
-		return elements.get(0);
+		EModelService modelService = (EModelService) application.getContext().get(EModelService.class.getName());
+		@SuppressWarnings("restriction")
+		List<String> tags = new ArrayList<String>();
+		tags.add("custom1");
+		@SuppressWarnings("restriction")
+		List<ToolControlImpl> elements = modelService.findElements(application, null,ToolControlImpl.class, null);
+		System.err.println(elements.size() + " elements found");
+		return null;
 	}
 
 	public void setLabel(String text) {
