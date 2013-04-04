@@ -1,4 +1,4 @@
-package controlcontributiondemo.e3;
+package controlContributionDemo.e3;
 
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Shell;

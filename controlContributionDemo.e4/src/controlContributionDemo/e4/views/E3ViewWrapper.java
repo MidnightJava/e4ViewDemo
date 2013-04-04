@@ -2,9 +2,11 @@ package controlContributionDemo.e4.views;
 
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.eclipse.core.runtime.ListenerList;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.jface.action.ControlContribution;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
@@ -88,6 +90,11 @@ public class E3ViewWrapper extends ViewPart {
 		}
 
 	};
+	
+	@Inject
+	public void setApplication(MApplication application) {
+		pojoView.setApplication(application);
+	}
 
 	@Override
 	@PostConstruct
