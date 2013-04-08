@@ -1,4 +1,4 @@
-package controlContributionDemo.e3.views;
+package controlcontributiondemo.e3.views;
 
 
 import javax.annotation.PostConstruct;

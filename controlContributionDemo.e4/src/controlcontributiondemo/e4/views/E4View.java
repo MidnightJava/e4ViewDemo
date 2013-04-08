@@ -1,4 +1,4 @@
-package controlContributionDemo.e4.views;
+package controlcontributiondemo.e4.views;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,13 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindowElement;
+import org.eclipse.e4.ui.model.application.ui.menu.MToolBar;
 import org.eclipse.e4.ui.model.application.ui.menu.MToolBarElement;
+import org.eclipse.e4.ui.model.application.ui.menu.MToolControl;
 import org.eclipse.e4.ui.model.application.ui.menu.MToolItem;
 import org.eclipse.e4.ui.model.application.ui.menu.impl.MenuPackageImpl;
 import org.eclipse.e4.ui.model.application.ui.menu.impl.ToolBarImpl;
@@ -29,7 +35,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import controlContributionDemo.e4.CustomButton1;
+import controlcontributiondemo.e4.CustomButton;
+import controlcontributiondemo.e4.CustomButton1;
 
 /**
  * 
@@ -42,10 +49,13 @@ public class E4View {
 	private static final String TOOL_ITEM_ID = "application.e4.toolcontrol.1";
 	private Label label;
 	private MApplication application;
+	private MWindow window;
+	private String id = "application.e4.part.0";
 
 	@Inject
-	public void setApplication(MApplication application) {
+	public void setApplication(MApplication application, MWindow window) {
 		this.application = application;
+		this.window = window;
 	}
 
 	@PostConstruct
@@ -66,16 +76,18 @@ public class E4View {
 		b.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ToolControlImpl toolControl = getToolControl();
+				MToolControl toolControl = getTrimBarsToolControl();
 				if (toolControl != null) {
-					ToolBar bar = (ToolBar) toolControl.getParent().getWidget();
-					ToolItem[] items = bar.getItems();
-					Control[] controls = bar.getChildren();
-
-					Label l = (Label) toolControl.getObject();
+					CustomButton1 control = (CustomButton1) toolControl.getObject();
+					String s = text.getText();
+					control.getLabel().setText(text.getText());
 				}
-
+				Label tcLabel = getToolControlLabel();
+				if (tcLabel != null) {
+					tcLabel.setText(text.getText());
+				}
 			}
+
 		});
 		b.setEnabled(false);
 
@@ -89,14 +101,37 @@ public class E4View {
 		});
 	}
 
-	public ToolControlImpl getToolControl() {
+	public Label getToolControlLabel() {
+		EModelService modelService = (EModelService) application.getContext().get(EModelService.class.getName());
+		List<MPart> parts = modelService.findElements(window, null,MPart.class, null);
+		for (MPart part : parts) {
+			if (id.equals(part.getElementId())) {
+				return getViewToolControlLabel(part);
+			} 
+		}
+		return null;
+	}
+
+	private Label getViewToolControlLabel(MPart part) {
+		MToolBar toolbar = part.getToolbar();
+		if (toolbar != null) {
+			for (MToolBarElement  element : toolbar.getChildren()) {
+				CustomButton cb = (CustomButton) ((ToolControlImpl) element).getObject();
+				if (cb != null) {
+					return cb.getLabel();
+				}	
+			}
+		}
+		return null;
+	}
+
+	public MToolControl getTrimBarsToolControl() {
 		EModelService modelService = (EModelService) application.getContext().get(EModelService.class.getName());
 		@SuppressWarnings("restriction")
-		List<String> tags = new ArrayList<String>();
-		tags.add("custom1");
-		@SuppressWarnings("restriction")
-		List<ToolControlImpl> elements = modelService.findElements(application, null,ToolControlImpl.class, null);
-		System.err.println(elements.size() + " elements found");
+		List<MToolControl> elements = modelService.findElements(window, null,MToolControl.class, null);
+		if (elements.size() > 0) {
+			return elements.get(0);
+		}
 		return null;
 	}
 
@@ -107,5 +142,9 @@ public class E4View {
 	@Focus
 	public void setFocus() {
 		this.label.setFocus();
+	}
+
+	public void setId(String id) {
+		this.id  = id;
 	}
 }

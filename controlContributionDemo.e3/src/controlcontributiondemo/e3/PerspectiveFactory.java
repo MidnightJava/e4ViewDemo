@@ -4,7 +4,7 @@ import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
-import controlContributionDemo.e3.views.ListenerDemoView;
+import controlcontributiondemo.e3.views.ListenerDemoView;
 
 public class PerspectiveFactory implements IPerspectiveFactory {
 

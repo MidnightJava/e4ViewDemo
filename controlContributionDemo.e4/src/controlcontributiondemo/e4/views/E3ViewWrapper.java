@@ -1,4 +1,4 @@
-package controlContributionDemo.e4.views;
+package controlcontributiondemo.e4.views;
 
 
 import javax.annotation.PostConstruct;
@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.eclipse.core.runtime.ListenerList;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.jface.action.ControlContribution;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
@@ -92,8 +93,8 @@ public class E3ViewWrapper extends ViewPart {
 	};
 	
 	@Inject
-	public void setApplication(MApplication application) {
-		pojoView.setApplication(application);
+	public void setApplication(MApplication application, MWindow window) {
+		pojoView.setApplication(application, window);
 	}
 
 	@Override
@@ -106,7 +107,8 @@ public class E3ViewWrapper extends ViewPart {
 		} 
 		//in e4 runtime, toolbar and tool items are added through the application model
 		pojoView.createPartControl(parent);
-		pojoView.setLabel("Hellow World E4—Wrapped!");
+		pojoView.setLabel("Hellow World E4 Wrapped!");
+		pojoView.setId("application.e4.inputpart.1");
 	}
 
 	private void addToolbarItem() {

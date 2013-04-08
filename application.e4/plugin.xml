@@ -25,7 +25,7 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="controlContributionDemo.e3.views.WrappedListenerDemoView"
+            class="controlcontributiondemox.e3.views.WrappedListenerDemoView"
             icon="icons/sample.gif"
             id="test.views.WrappedSampleView"
             name="Wrapped Sample View"

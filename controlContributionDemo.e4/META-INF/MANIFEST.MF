@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Common
 Bundle-SymbolicName: controlContributionDemo.e4
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: controlContributionDemo.e4.Activator
+Bundle-Activator: controlcontributiondemo.e4.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  javax.inject;bundle-version="1.0.0",
@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.core.contexts;bundle-version="1.2.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: controlContributionDemo.e4,
- controlContributionDemo.e4.views
+Export-Package: controlcontributiondemo.e4,
+ controlcontributiondemo.e4.views

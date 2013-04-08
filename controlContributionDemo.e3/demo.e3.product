@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="demo" id="controlContributionDemo.e3.product" application="controlContributionDemo.e3.id1" useFeatures="false" includeLaunchers="true">
+<product name="demo" id="controlcontributiondemo.e3.product" application="controlcontributiondemo.e3.id1" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -12,7 +12,7 @@
 
    <plugins>
       <plugin id="com.ibm.icu"/>
-      <plugin id="controlContributionDemo.e3"/>
+      <plugin id="controlcontributiondemo.e3"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>

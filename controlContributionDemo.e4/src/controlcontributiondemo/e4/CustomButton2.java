@@ -1,4 +1,4 @@
-package controlContributionDemo.e4;
+package controlcontributiondemo.e4;
 
 import javax.annotation.PostConstruct;
 
@@ -12,7 +12,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
-public class CustomButton2 extends ToolControlImpl {
+public class CustomButton2 extends ToolControlImpl implements CustomButton {
 
 	private Label label;
 
@@ -33,7 +33,7 @@ public class CustomButton2 extends ToolControlImpl {
 		this.setObject(label);
 	}
 
-	public Control getControl() {
+	public Label getLabel() {
 		return this.label;
 	}
 }

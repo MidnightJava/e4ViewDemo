@@ -1,4 +1,4 @@
-package controlContributionDemo.e4;
+package controlcontributiondemo.e4;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

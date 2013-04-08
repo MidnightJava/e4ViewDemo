@@ -5,9 +5,9 @@
       <children xsi:type="advanced:Perspective" xmi:id="_UAE4yZafEeK34Icv_LoRbQ">
         <children xsi:type="basic:PartSashContainer" xmi:id="_UAE4ypafEeK34Icv_LoRbQ">
           <children xsi:type="basic:PartStack" xmi:id="_UAE4y5afEeK34Icv_LoRbQ">
-            <children xsi:type="basic:Part" xmi:id="_d3-VgJagEeK34Icv_LoRbQ" elementId="application.e4.part.0" contributionURI="bundleclass://controlContributionDemo.e4/controlContributionDemo.e4.views.E4View" label="E4 Part" tooltip="E4 Part">
+            <children xsi:type="basic:Part" xmi:id="_d3-VgJagEeK34Icv_LoRbQ" elementId="application.e4.part.0" contributionURI="bundleclass://controlContributionDemo.e4/controlcontributiondemo.e4.views.E4View" label="E4 Part" tooltip="E4 Part">
               <toolbar xmi:id="_uEUlsJcLEeKR8_12GgdtIw" elementId="application.e4.toolbar.0">
-                <children xsi:type="menu:ToolControl" xmi:id="_0d9oUJcLEeKR8_12GgdtIw" elementId="application.e4.toolcontrol.1" contributionURI="bundleclass://controlContributionDemo.e4/controlContributionDemo.e4.CustomButton1">
+                <children xsi:type="menu:ToolControl" xmi:id="_0d9oUJcLEeKR8_12GgdtIw" elementId="application.e4.toolcontrol.1" contributionURI="bundleclass://controlContributionDemo.e4/controlcontributiondemo.e4.CustomButton1">
                   <tags>custom1</tags>
                 </children>
               </toolbar>
@@ -28,20 +28,21 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_UAE4x5afEeK34Icv_LoRbQ" label="About" command="_UAERxJafEeK34Icv_LoRbQ"/>
       </children>
     </mainMenu>
-    <sharedElements xsi:type="basic:InputPart" xmi:id="_dBrxQJahEeKxQfQgfpEhRA" elementId="application.e4.inputpart.0" contributionURI="bundleclass://controlContributionDemo.e3/controlContributionDemo.e3.views.ListenerDemoView" label="E3 Shared Part" tooltip="E3 Shared Part">
+    <sharedElements xsi:type="basic:InputPart" xmi:id="_dBrxQJahEeKxQfQgfpEhRA" elementId="application.e4.inputpart.0" contributionURI="bundleclass://controlContributionDemo.e3/controlcontributiondemo.e3.views.ListenerDemoView" label="E3 Shared Part" tooltip="E3 Shared Part">
       <toolbar xmi:id="_DMbnsJbnEeKR8_12GgdtIw" elementId="application.e4.toolbar.0">
-        <children xsi:type="menu:ToolControl" xmi:id="_8XUUwJcMEeKR8_12GgdtIw" elementId="application.e4.toolcontrol.2" contributionURI="bundleclass://controlContributionDemo.e4/controlContributionDemo.e4.CustomButton2"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_8XUUwJcMEeKR8_12GgdtIw" elementId="application.e4.toolcontrol.2" contributionURI="bundleclass://controlContributionDemo.e4/controlcontributiondemo.e4.CustomButton2"/>
       </toolbar>
     </sharedElements>
-    <sharedElements xsi:type="basic:InputPart" xmi:id="_bF62YJfZEeKA08R067jHCA" elementId="application.e4.inputpart.0" contributionURI="bundleclass://controlContributionDemo.e4/controlContributionDemo.e4.views.E3ViewWrapper" label="Wrapped E3 Part">
+    <sharedElements xsi:type="basic:InputPart" xmi:id="_bF62YJfZEeKA08R067jHCA" elementId="application.e4.inputpart.1" contributionURI="bundleclass://controlContributionDemo.e4/controlcontributiondemo.e4.views.E3ViewWrapper" label="Wrapped E3 Part">
       <toolbar xmi:id="_ntNHAJfZEeKA08R067jHCA" elementId="application.e4.toolbar.0">
-        <children xsi:type="menu:ToolControl" xmi:id="_ohTdcJfZEeKA08R067jHCA" elementId="application.e4.toolcontrol.3" contributionURI="bundleclass://controlContributionDemo.e4/controlContributionDemo.e4.CustomButton3"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_ohTdcJfZEeKA08R067jHCA" elementId="application.e4.toolcontrol.3" contributionURI="bundleclass://controlContributionDemo.e4/controlcontributiondemo.e4.CustomButton3"/>
       </toolbar>
     </sharedElements>
     <trimBars xmi:id="_UAE4zJafEeK34Icv_LoRbQ">
       <children xsi:type="menu:ToolBar" xmi:id="_UAFf0JafEeK34Icv_LoRbQ" elementId="toolbar:org.eclipse.ui.main.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_UAFf0ZafEeK34Icv_LoRbQ" iconURI="platform:/plugin/application.e4/icons/sample.gif" command="_UAERvpafEeK34Icv_LoRbQ"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_UAFf0pafEeK34Icv_LoRbQ" iconURI="platform:/plugin/application.e4/icons/save_edit.gif" command="_UAERwZafEeK34Icv_LoRbQ"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_6aYgIJ_iEeKtA7BEpzaimQ" elementId="application.e4.toolcontrol.1" contributionURI="bundleclass://controlContributionDemo.e4/controlcontributiondemo.e4.CustomButton1"/>
       </children>
     </trimBars>
   </children>

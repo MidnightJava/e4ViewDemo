@@ -9,7 +9,7 @@
       </category>
       <view
             category="test"
-            class="controlContributionDemo.e3.views.ListenerDemoView"
+            class="controlcontributiondemo.e3.views.ListenerDemoView"
             icon="icons/sample.gif"
             id="test.views.SampleView"
             name="Sample View">
